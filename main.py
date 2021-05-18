@@ -24,8 +24,8 @@ def init_wifi(apname, password, timeout=3000):
 
 wifi = init_wifi("wifi", "password")
 
-p0 = Pin(25, Pin.OUT)
-p1 = Pin(26, Pin.OUT)
+p0 = Pin(32, Pin.OUT)
+p1 = Pin(33, Pin.OUT)
 p0.value(0)
 p1.value(0)
 
@@ -33,11 +33,11 @@ p1.value(0)
 def on_data(data):
     print(data)
     # rotate motor left
-    if(data[2] == "left"):
+    if(data[2] == "0"):
         p0.value(1)
         p1.value(0)
     # rotate motor right
-    elif(data[2] == "right"):
+    elif(data[2] == "1"):
         p0.value(0)
         p1.value(1)
 
